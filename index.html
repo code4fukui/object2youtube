@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="icon" href="data:">
+<title>object2youtube</title>
+</head><body>
+<h1>object2youtube</h1>
+<textarea id=src></textarea><br>
+<button id=btn>↓ 変換</button><br>
+<textarea id=dst></textarea><br>
+<hr>
+<a href="https://github.com/code4fukui/object2youtube/">src on GitHub</a>
+
+<script type="module">
+import { object2youtube } from "./object2youtube.js";
+
+const sample = `<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/4bo2HoDVrF0&amp;hl=ja_JP&amp;fs=1&amp;"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="https://www.youtube.com/v/4bo2HoDVrF0&amp;hl=ja_JP&amp;fs=1&amp;" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object><br>`;
+
+src.value = sample;
+
+btn.onclick = () => {
+  dst.value = object2youtube(src.value);
+};
+
+</script>
+
+<style>
+textarea {
+  width: 90%;
+  height: 8em;
+  padding: .2em;
+  margin: .8em;
+}
+button {
+  margin: .8em;
+  padding: .3em;
+}
+</style>
+</body>
